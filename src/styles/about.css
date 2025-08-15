@@ -1,0 +1,31 @@
+.about-hero, .about-mission, .about-vision, .about-values, .about-team {
+  padding: 50px 20px;
+  max-width: 1000px;
+  margin: auto;
+  color: gold;
+  background: #000;
+  border-bottom: 1px solid gold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1, h2 {
+  color: gold;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}

@@ -1,0 +1,41 @@
+.sports-carousel {
+  padding: 1rem;
+}
+
+.carousel-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+}
+
+.carousel-item {
+  flex: 0 0 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  scroll-snap-align: start;
+  border-radius: 8px;
+  position: relative;
+}
+
+.carousel-item .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: gold;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.read-more {
+  color: gold;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+}
