@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "title": "Team A wins the championship",
+      "description": "Team A defeated Team B in a thrilling final to win the championship.",
+      "url": "https://example.com/news/team-a-championship",
+      "urlToImage": "https://example.com/images/team-a.jpg"
+    },
+    {
+      "title": "Player X breaks record",
+      "description": "Player X set a new record in the latest sports event.",
+      "url": "https://example.com/news/player-x-record",
+      "urlToImage": "https://example.com/images/player-x.jpg"
+    }
+  ]
+}
