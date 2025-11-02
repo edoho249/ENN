@@ -1,0 +1,40 @@
+
+.news-card {
+  position: relative;
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  color: gold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+}
+
+.news-card .overlay {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.news-card h3, .news-card h4 {
+  margin: 0;
+}
+
+.news-card p {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  max-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

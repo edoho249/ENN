@@ -1,0 +1,69 @@
+
+footer {
+  background: black;
+  color: gold;
+  padding: 40px 20px;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: gold;
+}
+
+.footer-section p, .footer-section li, .footer-section a {
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section .socials a {
+  margin-right: 10px;
+  color: gold;
+  transition: color 0.3s;
+}
+
+.footer-section .socials a:hover {
+  color: #fff;
+}
+
+.footer-section input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.footer-section button {
+  padding: 8px 15px;
+  background: gold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.footer-section button:hover {
+  background: #fff;
+  color: black;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid gold;
+  padding-top: 10px;
+}

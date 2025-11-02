@@ -1,0 +1,68 @@
+.contact-hero, .contact-form, .contact-info {
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: auto;
+  color: gold;
+  background: #000;
+  border-bottom: 1px solid gold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gold;
+  background: #111;
+  color: gold;
+  font-size: 1rem;
+}
+
+button {
+  width: 150px;
+  padding: 10px;
+  background: gold;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.contact-info h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.socials a {
+  color: gold;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.socials a:hover {
+  text-decoration: underline;
+}
