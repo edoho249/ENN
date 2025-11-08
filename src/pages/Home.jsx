@@ -8,7 +8,6 @@ import "../styles/newsCard.css";
 import "../styles/sports.css";
 
 const NYT_API_KEY = import.meta.env.VITE_NYT_API_KEY;
-const NEWSAPI_KEY = import.meta.env.VITE_NEWSAPI_KEY;
 
 const Home = () => {
   const [breakingNews, setBreakingNews] = useState([]);
@@ -19,9 +18,12 @@ const Home = () => {
   const [loadingSports, setLoadingSports] = useState(true);
 
   useEffect(() => {
+    // Fetch breaking news from NYT
     const fetchBreakingNews = async () => {
       try {
-        const res = await fetch(`https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${NYT_API_KEY}`);
+        const res = await fetch(
+          `https://api.nytimes.com/svc/topstories/v2/home.json?api-key=${NYT_API_KEY}`
+        );
         const data = await res.json();
         setBreakingNews(data.results?.slice(0, 10) || []);
       } catch (err) {
@@ -31,9 +33,12 @@ const Home = () => {
       }
     };
 
+    // Fetch top world news from NYT
     const fetchTopNews = async () => {
       try {
-        const res = await fetch(`https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${NYT_API_KEY}`);
+        const res = await fetch(
+          `https://api.nytimes.com/svc/topstories/v2/world.json?api-key=${NYT_API_KEY}`
+        );
         const data = await res.json();
         setTopNews(data.results?.slice(0, 6) || []);
       } catch (err) {
@@ -43,9 +48,11 @@ const Home = () => {
       }
     };
 
+    // Fetch live sports news from serverless function
     const fetchSportsNews = async () => {
       try {
-        const res = await fetch(`https://newsapi.org/v2/top-headlines?category=sports&country=us&apiKey=${NEWSAPI_KEY}`);
+        const res = await fetch("/api/sports");
+        if (!res.ok) throw new Error(`API error: ${res.status}`);
         const data = await res.json();
         setSportsNews(data.articles || []);
       } catch (err) {

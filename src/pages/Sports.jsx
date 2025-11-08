@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import SportsCarousel from "../components/SportsCarousel";
 import "../styles/home.css";
 import "../styles/sports.css";
-
-const NEWSAPI_KEY = import.meta.env.VITE_NEWSAPI_KEY;
 
 const Sports = () => {
   const [sportsNews, setSportsNews] = useState([]);
@@ -14,11 +12,9 @@ const Sports = () => {
   useEffect(() => {
     const fetchSportsNews = async () => {
       try {
-        const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?category=sports&country=us&apiKey=${NEWSAPI_KEY}`
-        );
-        if (!response.ok) throw new Error(`API error: ${response.status}`);
-        const data = await response.json();
+        const res = await fetch("/api/sports");
+        if (!res.ok) throw new Error(`API error: ${res.status}`);
+        const data = await res.json();
         setSportsNews(data.articles || []);
       } catch (err) {
         console.error("Error fetching sports news:", err);
