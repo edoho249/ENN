@@ -7,16 +7,28 @@ import "../styles/sports.css";
 
 const Sports = () => {
   const [sportsNews, setSportsNews] = useState([]);
+  const apiKey = import.meta.env.VITE_NEWSAPI_KEY;
 
   useEffect(() => {
-    fetch("/data/sports.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("Failed to load sports.json");
-        return res.json();
-      })
-      .then((data) => setSportsNews(data.articles || []))
-      .catch((err) => console.error("Error loading sports data:", err));
-  }, []);
+    const fetchSportsNews = async () => {
+      try {
+        const response = await fetch(
+          `https://newsapi.org/v2/top-headlines?category=sports&country=us&apiKey=${apiKey}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setSportsNews(data.articles || []);
+      } catch (error) {
+        console.error("Error fetching sports news:", error);
+      }
+    };
+
+    fetchSportsNews();
+  }, [apiKey]);
 
   return (
     <div>
