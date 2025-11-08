@@ -5,40 +5,44 @@ import SportsCarousel from "../components/SportsCarousel";
 import "../styles/home.css";
 import "../styles/sports.css";
 
+const NEWSAPI_KEY = import.meta.env.VITE_NEWSAPI_KEY;
+
 const Sports = () => {
   const [sportsNews, setSportsNews] = useState([]);
-  const apiKey = import.meta.env.VITE_NEWSAPI_KEY;
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchSportsNews = async () => {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/top-headlines?category=sports&country=us&apiKey=${apiKey}`
+          `https://newsapi.org/v2/top-headlines?category=sports&country=us&apiKey=${NEWSAPI_KEY}`
         );
-
-        if (!response.ok) {
-          throw new Error(`API error: ${response.status}`);
-        }
-
+        if (!response.ok) throw new Error(`API error: ${response.status}`);
         const data = await response.json();
         setSportsNews(data.articles || []);
-      } catch (error) {
-        console.error("Error fetching sports news:", error);
+      } catch (err) {
+        console.error("Error fetching sports news:", err);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchSportsNews();
-  }, [apiKey]);
+  }, []);
 
   return (
     <div>
       <Header />
       <h2 className="section-title">Sports News</h2>
-      {sportsNews.length > 0 ? (
+
+      {loading ? (
+        <p>Loading sports news...</p>
+      ) : sportsNews.length > 0 ? (
         <SportsCarousel sportsNews={sportsNews} />
       ) : (
         <p className="no-news">No sports news available right now.</p>
       )}
+
       <Footer />
     </div>
   );

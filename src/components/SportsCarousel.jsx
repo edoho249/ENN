@@ -1,11 +1,8 @@
-
 import React from "react";
 import "../styles/sports.css";
 
 const SportsCarousel = ({ sportsNews }) => {
-  const filteredSportsNews = sportsNews.filter(
-    (news) => news.urlToImage
-  );
+  const filteredSportsNews = sportsNews.filter(news => news.urlToImage);
 
   return (
     <section className="sports-carousel">
@@ -16,13 +13,15 @@ const SportsCarousel = ({ sportsNews }) => {
               className="carousel-item"
               key={idx}
               style={{
-                backgroundImage: `url(${news.urlToImage})`,
+                backgroundImage: `url(${news.urlToImage || "/fallback-image.jpg"})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
               }}
             >
               <div className="overlay">
-                <h4>{news.title}</h4>
+                <h4>{news.title || "No Title"}</h4>
                 <a
-                  href={news.url}
+                  href={news.url || "#"}
                   target="_blank"
                   rel="noreferrer"
                   className="read-more"
