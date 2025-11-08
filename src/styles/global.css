@@ -3,6 +3,14 @@
   --main-color: #FFD700;
   --text-color: #fff;
 }
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.section-title, h2, h4 {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.5px;
+}
 
 body {
   margin: 0;
