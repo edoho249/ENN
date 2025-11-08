@@ -1,4 +1,3 @@
-import sportsData from "../data/sports.json"; // relative to Sports.jsx
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,7 +9,13 @@ const Sports = () => {
   const [sportsNews, setSportsNews] = useState([]);
 
   useEffect(() => {
-    setSportsNews(sportsData.articles || []);
+    fetch("/data/sports.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load sports.json");
+        return res.json();
+      })
+      .then((data) => setSportsNews(data.articles || []))
+      .catch((err) => console.error("Error loading sports data:", err));
   }, []);
 
   return (
